@@ -1,14 +1,16 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 export const Container = styled.main`
-  max-width: 1120px;
+  max-width: 1220px;
   margin: 0 auto;
   padding: 0 2rem;
-  height: calc(100vh - 5rem);
+  height: 100%;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  column-gap: 10rem;
 
   img {
     max-width: 45%;
