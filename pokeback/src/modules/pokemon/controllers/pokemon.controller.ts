@@ -1,12 +1,13 @@
-import { Controller, Get } from '@nestjs/common';
-import { AppService } from '../services/pokemon.service';
+import { Controller, Get, Param } from '@nestjs/common';
+import { PokemonService } from '../services/pokemon.service';
+import { Pokemon } from '../entities/pokemon/pokemon.entity';
 
-@Controller()
-export class AppController {
-  constructor(private readonly appService: AppService) {}
+@Controller('pokemon')
+export class PokemonController {
+  constructor(private readonly pokemonService: PokemonService) {}
 
-  @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  @Get(':name')
+  async getPokemonByName(@Param('name') name: string): Promise<Pokemon> {
+    return await this.pokemonService.findPokemonByName(name);
   }
 }
