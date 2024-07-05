@@ -1,4 +1,4 @@
-# TechNova Pokémon Project
+# ZRP Pokémon Project
 
 ## Descrição
 
