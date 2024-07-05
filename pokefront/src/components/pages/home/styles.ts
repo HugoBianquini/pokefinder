@@ -17,6 +17,8 @@ export const Container = styled.main`
 
 export const SearchContainer = styled.div`
   max-width: 600px;
+  display: flex;
+  flex-direction: column;
 
   h1 {
     font-size: 4.5rem;
@@ -44,8 +46,11 @@ export const SearchContainer = styled.div`
       font-weight: bold;
     }
   }
+`;
 
-  button {
-    margin-top: 2.5rem;
-  }
+export const InputButtonContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  column-gap: 16px;
+  margin-top: 2rem;
 `;
