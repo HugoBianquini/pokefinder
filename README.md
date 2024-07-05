@@ -1,5 +1,7 @@
 # ZRP Pokémon Project
 
+<img width="1673" alt="Captura de Tela 2024-07-05 às 16 29 42" src="https://github.com/HugoBianquini/zrp-pokemon/assets/65050552/61ee89a2-88f3-4181-93e4-7dbd89da737f">
+
 ## Descrição
 
 Este repositório contém três projetos integrados para criar uma aplicação completa envolvendo um backend, um frontend e um CMS. A aplicação utiliza a PokeAPI para buscar informações sobre Pokémon e exibe essas informações em uma interface moderna. Além disso, permite adicionar descrições personalizadas para cada Pokémon através de um CMS Strapi.
@@ -40,6 +42,8 @@ Para rodar os projetos `pokeback` e `pokefront` em conjunto, utilize o Docker Co
 3. Após os contêineres subirem:
    - O frontend estará acessível em: `http://localhost:3000`
    - O backend estará acessível em: `http://localhost:8080`
+
+OBS: Recomendo utilizar o frontend no computador, o layout ainda não está responsivo para dispositivos menores
 
 ### Executando o Strapi CMS Localmente
 
