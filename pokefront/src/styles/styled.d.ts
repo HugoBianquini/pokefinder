@@ -1,5 +1,6 @@
+/* eslint-disable no-unused-vars */
 import "styled-components";
-import { theme } from "./theme";
+import { theme } from "./theme.ts";
 
 type ThemeInterface = typeof theme;
 
