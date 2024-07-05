@@ -17,9 +17,19 @@ export const Container = styled.main`
   justify-content: space-between;
 
   column-gap: 10rem;
+`;
+
+export const ImageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  max-width: 45%;
 
   img {
-    max-width: 45%;
+    max-width: 560px;
+  }
+  span {
+    margin-top: 48px;
+    text-align: center;
   }
 `;
 

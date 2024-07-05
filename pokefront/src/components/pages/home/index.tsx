@@ -12,11 +12,16 @@ import {
   SearchContainer,
   InputButtonContainer,
   Wrapper,
+  ImageContainer,
 } from "./styles";
+import { getDescriptionByName } from "@/services/strapi/pokemonDescription";
+import { IPokemonDescriptionResponse } from "@/services/strapi/pokemonDescription/types";
 
 const HomeComponent = () => {
   const [pokemonName, setPokemonName] = useState<string>("");
   const [pokemon, setPokemon] = useState<IPokemonResponse>();
+  const [pokemonDescription, setPokemonDescription] =
+    useState<IPokemonDescriptionResponse>();
   const [isLoading, setLoading] = useState<boolean>(false);
 
   const handleChangePokemonName = (e: ChangeEvent<HTMLInputElement>) => {
@@ -33,8 +38,12 @@ const HomeComponent = () => {
     if (pokemonName) {
       setLoading(true);
       try {
-        const { data, status } = await getPokemonByName(pokemonName);
+        const { data } = await getPokemonByName(pokemonName);
         setPokemon(data);
+
+        // Get data from Stripe
+        const descripion = await getDescriptionByName(pokemonName);
+        setPokemonDescription(descripion);
       } catch (err) {
         const { response } = err as AxiosError;
         handleRequestErrors(response?.status);
@@ -68,7 +77,12 @@ const HomeComponent = () => {
 
           {pokemon && <PokemonComponent pokemon={pokemon} />}
         </SearchContainer>
-        <img src="/images/pokemon.svg" alt="Pokemon Guy" />
+        <ImageContainer>
+          <img src="/images/pokemon.svg" alt="Pokemon Guy" />
+          {pokemon && pokemonDescription && (
+            <span>{pokemonDescription.attributes.description}</span>
+          )}
+        </ImageContainer>
       </Container>
       <ToastContainer theme="dark" />
     </Wrapper>
