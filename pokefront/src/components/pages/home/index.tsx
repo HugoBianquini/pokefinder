@@ -1,12 +1,18 @@
 "use client";
-import Button from "@/components/shared/Button";
-import { Container, SearchContainer, InputButtonContainer } from "./styles";
-import Input from "@/components/shared/Input";
 import { ChangeEvent, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import Button from "@/components/shared/Button";
+import { AxiosError } from "axios";
+import Input from "@/components/shared/Input";
 import { getPokemonByName } from "@/services/pokeBackApi";
 import { IPokemonResponse } from "@/services/pokeBackApi/types";
-import { AxiosError } from "axios";
 import PokemonComponent from "./partials/PokemonComponent";
+import {
+  Container,
+  SearchContainer,
+  InputButtonContainer,
+  Wrapper,
+} from "./styles";
 
 const HomeComponent = () => {
   const [pokemonName, setPokemonName] = useState<string>("");
@@ -19,8 +25,8 @@ const HomeComponent = () => {
 
   const handleRequestErrors = (status?: number) => {
     return status === 404
-      ? console.log("Pokemon não encontrado")
-      : console.log("Ocorreu um erro ao buscar o pokemon");
+      ? toast.warning("Pokemon não encontrado")
+      : toast.error("Ocorreu um erro ao buscar o pokemon");
   };
 
   const handleSearch = async () => {
@@ -38,25 +44,34 @@ const HomeComponent = () => {
   };
 
   return (
-    <Container>
-      <SearchContainer>
-        <h1>
-          Encontre um <span>Pokemon</span>
-        </h1>
-        <InputButtonContainer>
-          <Input
-            placeholder="Digite o nome do pokemon"
-            value={pokemonName}
-            onChange={handleChangePokemonName}
-          />
-          <Button onClick={handleSearch}>
-            {isLoading ? "Carregando..." : "Pesquisar"}
-          </Button>
-        </InputButtonContainer>
-        {pokemon && <PokemonComponent pokemon={pokemon} />}
-      </SearchContainer>
-      <img src="/images/pokemon.svg" alt="Pokemon Guy" />
-    </Container>
+    <Wrapper>
+      <Container>
+        <SearchContainer>
+          <h1>
+            Encontre um <span>Pokemon</span>
+          </h1>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              handleSearch();
+            }}
+          >
+            <InputButtonContainer>
+              <Input
+                placeholder="Digite o nome do pokemon"
+                value={pokemonName}
+                onChange={handleChangePokemonName}
+              />
+              <Button>{isLoading ? "Carregando..." : "Pesquisar"}</Button>
+            </InputButtonContainer>
+          </form>
+
+          {pokemon && <PokemonComponent pokemon={pokemon} />}
+        </SearchContainer>
+        <img src="/images/pokemon.svg" alt="Pokemon Guy" />
+      </Container>
+      <ToastContainer theme="dark" />
+    </Wrapper>
   );
 };
 

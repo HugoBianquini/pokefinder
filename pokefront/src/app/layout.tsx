@@ -3,6 +3,7 @@ import { Roboto } from "next/font/google";
 import StyledComponentsRegistry from "@/lib/registry";
 import CustomThemeProvider from "../providers/ThemeProvider";
 import "../styles/globals.css";
+import "react-toastify/dist/ReactToastify.css";
 
 const roboto = Roboto({ subsets: ["latin"], weight: ["400", "500", "700"] });
 

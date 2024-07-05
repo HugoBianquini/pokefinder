@@ -3,7 +3,7 @@ import { TButtonProps } from "./types";
 
 const Button = ({ children, onClick }: TButtonProps) => {
   return (
-    <CustomButton type="button" onClick={onClick} data-testid="customButton">
+    <CustomButton type="submit" onClick={onClick} data-testid="customButton">
       {children}
     </CustomButton>
   );
