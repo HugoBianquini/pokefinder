@@ -1,7 +1,7 @@
 import { IAbilities } from './index.type';
 
 export class Pokemon {
-  id: string;
+  id: number;
   abilities: IAbilities[];
   name: string;
   sprites: {
