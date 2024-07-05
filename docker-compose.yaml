@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  backend:
+    build: ./pokeback
+    env_file:
+      - ./pokeback/.env.development
+    ports:
+      - "8080:8080"
+    tty: true
+  frontend:
+    build: ./pokefront
+    env_file:
+      - ./pokefront/.env.development
+    ports:
+      - "3000:3000"
+    tty: true
