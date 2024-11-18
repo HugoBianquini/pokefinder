@@ -2,84 +2,84 @@
 
 <img width="1673" alt="Captura de Tela 2024-07-05 às 16 29 42" src="https://github.com/HugoBianquini/zrp-pokemon/assets/65050552/61ee89a2-88f3-4181-93e4-7dbd89da737f">
 
-## Descrição
+## Description
 
 Find any Pokemon easily!
 
-Este repositório contém três projetos integrados para criar uma aplicação completa envolvendo um backend, um frontend e um CMS. A aplicação utiliza a PokeAPI para buscar informações sobre Pokémon e exibe essas informações em uma interface moderna. Além disso, permite adicionar descrições personalizadas para cada Pokémon através de um CMS Strapi.
+This repository contains three integrated projects to create a complete application involving a backend, a frontend, and a CMS. The application uses the PokeAPI to fetch Pokémon data and displays this information in a modern interface. Additionally, it allows adding custom descriptions for each Pokémon through a Strapi CMS.
 
-## Pré-requisitos
+## Prerequisites
 
-Certifique-se de ter as seguintes ferramentas instaladas em seu ambiente de desenvolvimento:
+Make sure to have the following tools installed in your development environment:
 
 - Node.js
 - Docker
 - Yarn
 
-## Estrutura do Repositório
+## Repository Structure
 
-- **pokeback**: Backend desenvolvido em NestJS que realiza a conexão com a PokeAPI.
-- **pokefront**: Frontend desenvolvido em Next.js que integra com o backend para exibir as informações dos Pokémon.
-- **zrp-pokemon**: Projeto Strapi CMS que permite adicionar descrições personalizadas para os Pokémon.
+- **pokeback**: Backend built with NestJS that connects to the PokeAPI.
+- **pokefront**: Frontend built with Next.js that integrates with the backend to display Pokémon data.
+- **zrp-pokemon**: Strapi CMS project that allows adding custom descriptions for Pokémon.
 
-## Instruções para Execução
+## Running Instructions
 
-### Executando Backend e Frontend com Docker
+### Running Backend and Frontend with Docker
 
-Para rodar os projetos `pokeback` e `pokefront` em conjunto, utilize o Docker Compose.
+To run the `pokeback` and `pokefront` projects together, use Docker Compose.
 
-1. Clone o repositório:
+1. Clone the repository:
 
    ```bash
-   git clone https://github.com/seu-usuario/seu-repositorio.git
-   cd seu-repositorio
+   git clone https://github.com/seu-usuario/your-repository.git
+   cd your-repository
    ```
 
-2. Execute o Docker Compose:
+2. Run Docker Compose:
 
    ```bash
    docker-compose up -d
    ```
 
-3. Após os contêineres subirem:
-   - O frontend estará acessível em: `http://localhost:3000`
-   - O backend estará acessível em: `http://localhost:8080`
+3. Once the containers are up:
+   - The frontend will be accessible at: `http://localhost:3000`
+   - The backend will be accessible at: `http://localhost:8080`
 
-OBS: Recomendo utilizar o frontend no computador, o layout ainda não está responsivo para dispositivos menores
+NOTE: It is recommended to use the frontend on a computer as the layout is not yet responsive for smaller devices.
 
-### Executando o Strapi CMS Localmente
+### Running the Strapi CMS Locally
 
-O projeto Strapi não está incluído no Docker Compose para evitar lentidão e problemas de memória. Portanto, é necessário rodá-lo localmente.
+The Strapi project is not included in the Docker Compose setup to avoid performance and memory issues. Therefore, it must be run locally.
 
-1. Acesse a pasta do Strapi:
+1. Navigate to the Strapi folder:
 
    ```bash
    cd zrp-pokemon
    ```
 
-2. Instale as dependências:
+2. Install dependencies:
 
    ```bash
    yarn install
    ```
 
-3. Inicie o Strapi
+3. Start Strapi:
 
    ```bash
    yarn start
    ```
 
-4. Acesse o painel administrativo do Strapi:
+4. Access the Strapi admin panel:
 
-- O painel estará acessível em: http://localhost:1337/admin
-  -Dentro do painel, você encontrará a entidade "PokemonDescription".
+- The panel will be available at: http://localhost:1337/admin
+- Inside the panel, you will find the "PokemonDescription" entity.
 
-OBS: Como os conteineres do backend e frontend estão em um grupo separada, as redes não estão configuradas para se comunicar com o container strapi.
+NOTE: Since the backend and frontend containers are in a separate group, the networks are not configured to communicate with the Strapi container.
 
-## Docker Compose com Strapi
+## Docker Compose with Strapi
 
-Na pasta "extra" do repositório, existe um arquivo `docker-compose` que inclui o Strapi. Caso alguém queira rodar todos os serviços juntos, pode utilizar este arquivo. No entanto, esteja ciente de que o build levará algum tempo e existe a chance de retornar erro por falta de memória no container.
+In the "extra" folder of the repository, there is a docker-compose file that includes Strapi. If someone wants to run all services together, they can use this file. However, be aware that the build process may take some time, and there is a chance of encountering memory issues with the container.
 
-## Contribuição
+## Contribution
 
-Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou pull requests.
+Contributions are welcome! Feel free to open issues or pull requests.
